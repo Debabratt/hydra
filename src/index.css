@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+  }
+}
+
+/* Your existing styles */
+@layer components {
+  .hanging-link {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .hanging-link::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 1px;
+    height: 10px;
+    transform: translateX(-50%);
+  }
+
+  .hanging-link:hover {
+    color: #f0f0f0;
+    transform: rotate(10deg);
+    animation: swing 0.8s ease-in-out;
+  }
+
+  @keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+  }
+}
+
+@keyframes infinite-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Move by half of the total width */
+}
+
+.animate-infinite-marquee {
+  display: flex;
+  white-space: nowrap; /* Prevent line breaks */
+  animation: infinite-marquee 6s linear infinite; /* Decrease duration for faster scrolling */
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
