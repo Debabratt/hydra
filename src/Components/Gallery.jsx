@@ -62,7 +62,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="relative h-auto flex flex-col md:flex-row">
+    <div  id='gallery' className="relative h-auto flex flex-col md:flex-row">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 

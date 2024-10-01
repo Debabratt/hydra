@@ -1,10 +1,11 @@
 // src/components/Navbar.jsx
-import { Link } from 'react-router-dom';
+
+import { navLinks } from '../constants/index.js'; // Update the path to where navLinks is defined
 
 const Navbar = () => {
   return (
     <div className="bg-black">
-      <nav className="container mx-auto py-2 flex items-center flex-wrap">
+      <nav className="container mx-auto py-2 flex flex-col md:flex-row items-center">
         {/* Logo on the left (visible only on larger screens) */}
         <div className="hidden md:flex flex-shrink-0 mr-2">
           <img
@@ -15,18 +16,23 @@ const Navbar = () => {
         </div>
 
         {/* Centered Links and Video */}
-        <div className="flex-grow flex items-center justify-center space-x-6 flex-col md:flex-row">
-          <ul className="flex space-x-6">
-            <li>
-              <Link to="/evengt" className="text-gold font-semibold text-2xl hover:text-gradient">EVENT</Link>
-            </li>
-            <li>
-              <Link to="/gallery" className="text-gold font-semibold text-2xl hover:text-gradient">GALLERY</Link>
-            </li>
+        <div className="flex-grow flex flex-col md:flex-row items-center justify-center">
+          {/* Links on the left side */}
+          <ul className="flex space-x-6 md:mr-4">
+            {navLinks.slice(0, 2).map(link => (
+              <li key={link.id}>
+                <a
+                  href={link.href}
+                  className="text-gold font-semibold text-2xl hover:text-gradient"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
 
           {/* Video in the middle with margin */}
-          <div className="flex-shrink-0 mx-4"> {/* Added horizontal margin */}
+          <div className="flex-shrink-0 mx-4 my-4 md:my-0">
             <video
               className="rounded-full w-28 h-28 object-cover"
               src="hydra.mp4" // Replace with your video URL
@@ -36,13 +42,18 @@ const Navbar = () => {
             />
           </div>
 
-          <ul className="flex space-x-6">
-            <li>
-              <Link to="/about" className="text-gold font-semibold text-2xl hover:text-gradient">ABOUT</Link>
-            </li>
-            <li>
-              <Link to="/contact" className="text-gold font-semibold text-2xl hover:text-gradient">CONTACT</Link>
-            </li>
+          {/* Links on the right side */}
+          <ul className="flex space-x-6 md:ml-4">
+            {navLinks.slice(2).map(link => (
+              <li key={link.id}>
+                <a
+                  href={link.href}
+                  className="text-gold font-semibold text-2xl hover:text-gradient"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>

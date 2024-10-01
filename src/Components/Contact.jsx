@@ -47,7 +47,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="relative bg-black h-screen overflow-hidden flex flex-col md:flex-row">
+    <div id='contact' className="relative bg-black h-screen overflow-hidden flex flex-col md:flex-row">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-40" 

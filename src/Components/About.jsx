@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div className="relative flex flex-col md:flex-row h-auto scroll-smooth">
+    <div id='about' className="relative flex flex-col md:flex-row h-auto scroll-smooth">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 

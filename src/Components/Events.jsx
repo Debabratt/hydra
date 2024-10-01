@@ -9,7 +9,7 @@ const Events = () => {
     ];
   
     return (
-      <div className="relative h-screen bg-black">
+      <div id="event" className="relative h-screen bg-black">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -27,7 +27,7 @@ const Events = () => {
                 <img
                   src={event.image}
                   alt={event.alt}
-                  className="rounded-tl-3xl rounded-br-3xl object-cover h-full w-full transition-transform transform group-hover:scale-105" // Adjusted rounded corners
+                  className=" object-cover h-full w-full transition-transform transform group-hover:scale-105" // Adjusted rounded corners
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-70 rounded-lg">
                   <span className="text-gold font-bold text-lg">{event.date}</span>
